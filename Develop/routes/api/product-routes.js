@@ -96,12 +96,10 @@ router.put('/:id', (req, res) => {
     },
   })
     .then((product) => {
-      if (req.body.tagIds && req.body.tagIds.length) {
-
-        ProductTag.findAll({
-          where: { product_id: req.params.id }
-        }).then((productTags) => {
-          // create filtered list of new tag_ids
+      return ProductTag.findAll({ where: { product_id: req.params.id }});
+    })
+      .then((productTags) => {
+        // create filtered list of new tag_ids
           const productTagIds = productTags.map(({ tag_id }) => tag_id);
           const newProductTags = req.body.tagIds
             .filter((tag_id) => !productTagIds.includes(tag_id))
@@ -121,19 +119,29 @@ router.put('/:id', (req, res) => {
             ProductTag.destroy({ where: { id: productTagsToRemove } }),
             ProductTag.bulkCreate(newProductTags),
           ]);
-        });
-      }
+        })
+        .then((updatedProductTags) => res.json(updatedProductTags))
+         .catch((err) => {
+          // console.log(err);
+          res.status(400).json(err);}
+       )
+   });
 
-      return res.json(product);
-    })
-    .catch((err) => {
-      // console.log(err);
-      res.status(400).json(err);
-    });
-});
-
-router.delete('/:id', (req, res) => {
+   router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
+  Product.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbProductData => {
+      if (!dbProductData) {
+        res.status(404).json({ message: "Product not found." });
+        return;
+      }
+      res.json(dbProductData);
+    })
+    if(error) throw error;
 });
 
 module.exports = router;
