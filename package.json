@@ -1,7 +1,7 @@
 {
-  "name": "module-13-challenge-orm",
+  "name": "ecommerce-back-end",
   "version": "1.0.0",
-  "description": "",
+  "description": "\"Internet retail, also known as e-commerce, is the largest sector of the electronics industry, having generated an estimated US$29 trillion in 2017 (Source: United Nations Conference on Trade and Development). E-commerce platforms like Shopify and WooCommerce provide a suite of services to businesses of all sizes. Due to the prevalence of these platforms, developers should understand the fundamental architecture of e-commerce sites.\"",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,20 +9,15 @@
     "watch": "nodemon server.js",
     "seed": "node seeds/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@work.github.com:coding-boot-camp/module-13-challenge-orm.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^2.0.3"
-  },
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mysql2": "^2.1.0",
-    "sequelize": "^6.31.1"
+    "mysql2": "^3.5.1",
+    "sequelize": "^6.32.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
