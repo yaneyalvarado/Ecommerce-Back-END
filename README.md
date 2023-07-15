@@ -9,6 +9,7 @@ I have created the back-end to this ecommerce website utilizing Express.js API a
 - SO THAT my company can compete with other e-commerce companies
 
 ## Acceptance Criteria
+```
 - GIVEN a functional Express.js API
 - WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
 - THEN I am able to connect to a database using Sequelize
@@ -20,6 +21,7 @@ I have created the back-end to this ecommerce website utilizing Express.js API a
 - THEN the data for each of these routes is displayed in a formatted JSON
 - WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
 - THEN I am able to successfully create, update, and delete data in my database
+```
 
 ## GitHub
 https://github.com/yaneyalvarado/Ecommerce-Back-END
