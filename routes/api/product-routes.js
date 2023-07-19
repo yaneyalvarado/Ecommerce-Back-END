@@ -22,27 +22,27 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
-    include: [
-      {
-        model: Category,
-        attributes: ['id', 'category_name'],
-      },
-      {
-        model: Tag,
-        through: ProductTag,
-        as: "tags",
-      },
-    ],
+    // attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
+    // include: [
+    //   {
+    //     model: Category,
+    //     attributes: ['id', 'category_name'],
+    //   },
+    //   {
+    //     model: Tag,
+    //     through: ProductTag,
+    //     as: "tags",
+    //   },
+    // ],
   })
   .then((dbProductData) => {
-    if (dbProductData) {
-      res.status().json({ message: 'Product not found.'});
-      return;
-    }
+    // if (dbProductData) {
+    //   res.status().json({ message: 'Product not found.'});
+    //   return;
+    // }
     res.json(dbProductData);
   })
-    if(error) throw error;
+    // if(error) throw error;
 });
  /* req.body should look like this...
     {

@@ -24,22 +24,23 @@ router.get('/:id', (req, res) => {
     where: { 
       id: req.params.id,
     },
-    include: [
-      {
-        model: Product,
-        attributes: ['id', 'product_name', 'price', 'stock', 'category_id' ],
-        through: ProductTag,
-        as: 'products',
-      },
-    ],
+    // include: [
+    //   {
+    //     model: Product,
+    //     attributes: ['id', 'product_name', 'price', 'stock', 'category_id' ],
+    //     through: ProductTag,
+    //     as: 'products',
+    //   },
+    // ],
   })
     .then((dbTagData) => {
-      if (!dbTagData) {
-        res.status(404).json({ message: "Tag was not found." });
-        return;
-      }
-      if(error) throw error;
-    })
+      // if (!dbTagData) {
+      //   res.status(404).json({ message: "Tag was not found." });
+      //   return;
+      // }
+      res.json(dbTagData)
+      // if(error) throw error;
+    });
 });
 
 // create a new tag
