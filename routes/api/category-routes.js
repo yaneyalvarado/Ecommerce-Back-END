@@ -65,13 +65,13 @@ router.delete("/:id", (req, res) => {
       id: req.params.id,
     },
   }).then((dbCategoryData) => {
-    if (dbCategoryData) {
+    if (!dbCategoryData) {
       res.status().json({ message: "Category not found" });
       return;
     }
     res.json(dbCategoryData);
   });
-  if (error) throw error;
+  // if (error) throw error;
 });
 
 module.exports = router;

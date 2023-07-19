@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
       tag_name: req.body.tag_name
     })
       .then(dbTagData => res.json(dbTagData))
-      if(error) throw error;
+      // if(error) throw error;
 });
 
 // update a tag's name by its `id` value
@@ -77,13 +77,13 @@ router.delete('/:id', (req, res) => {
     },
   })
     .then((dbTagData) => {
-      if (!dbTagData) {
+      if (dbTagData) {
         res.status(404).json({ message: 'Tag was not found' });
         return;
       }
       res.json(dbTagData);
     })
-      if(error) throw error;
+      // if(error) throw error;
 });
 
 module.exports = router;

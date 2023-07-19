@@ -123,13 +123,13 @@ router.put('/:id', (req, res) => {
     }
   })
     .then(dbProductData => {
-      if (!dbProductData) {
+      if (dbProductData) {
         res.status(404).json({ message: "Product not found." });
         return;
       }
       res.json(dbProductData);
     })
-    if(error) throw error;
+    // if(error) throw error;
 });
 
 module.exports = router;
