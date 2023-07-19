@@ -77,13 +77,12 @@ router.post('/', (req, res) => {
 
 // update product
 router.put('/:id', (req, res) => {
-  // update product data
   Product.update(req.body, {
     where: {
       id: req.params.id,
     },
   })
-    .then((product) => {
+    .then((Product) => {
       return ProductTag.findAll({ where: { product_id: req.params.id }});
     })
       .then((productTags) => {
@@ -97,8 +96,6 @@ router.put('/:id', (req, res) => {
                 tag_id,
               };
             });
-
-          // figure out which ones to remove
           const productTagsToRemove = productTags
             .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
             .map(({ id }) => id);

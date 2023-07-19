@@ -66,7 +66,7 @@ router.put('/:id', (req, res) => {
       }
       res.json(dbTagData);
     })
-    if(error) throw error;
+    // if(error) throw error;
 });
 
  // delete on tag by its `id` value
